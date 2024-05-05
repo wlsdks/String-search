@@ -4,11 +4,12 @@ import com.string.search.document.ExampleDocument;
 import com.string.search.repository.ElasticsearchRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@Transactional
+/**
+ * ReactiveSearchService는 엘라스틱서치 도큐먼트를 저장하고 검색하는 비즈니스 로직을 담당합니다.
+ */
 @RequiredArgsConstructor
 @Service
 public class ReactiveSearchService {
