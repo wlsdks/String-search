@@ -1,0 +1,15 @@
+elasticsearch:
+  host: ${ELASTICSEARCH_HOST:localhost}
+  username: ${ELASTICSEARCH_USERNAME:elastic}
+  password: ${ELASTICSEARCH_PASSWORD:elk}
+
+---
+
+
+#server:
+#  ssl:
+#    key-store: "file:./elasticsearch.keystore.p12"  # ?? ???? ?? ????? ??
+#    key-store-password: ""  # ???? ??
+#    keyStoreType: PKCS12
+#    keyAlias: ""  # ?? ??
+
