@@ -48,6 +48,9 @@ public class ElasticsearchConfig extends ElasticsearchConfiguration {
 
     /**
      * SSL 인증서 체크 안함
+     *
+     * disableSslVerification() 메소드: 모든 인증서를 신뢰하는 TrustManager를 설정하여 SSL 인증서 검증을 비활성화합니다.
+     * 이 설정은 SSLContext 객체를 생성하고 초기화하여 모든 HTTPS 연결에 대해 기본 SSLSocketFactory로 설정합니다.
      * @return
      */
     public static SSLContext disableSslVerification() {
@@ -80,6 +83,9 @@ public class ElasticsearchConfig extends ElasticsearchConfiguration {
 
     /**
      * 호스트 네임 체크 안함
+     *
+     * allHostsValid() 메소드: 모든 호스트 이름을 신뢰하는 HostnameVerifier를 설정합니다.
+     * 이는 HttpsURLConnection의 기본 HostnameVerifier로 설정되어, 모든 HTTPS 호스트 이름 검증을 우회합니다.
      * @return
      */
     public static HostnameVerifier allHostsValid() {
