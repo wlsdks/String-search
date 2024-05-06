@@ -1,7 +1,7 @@
 package com.string.search.controller;
 
 import com.string.search.document.Example;
-import com.string.search.service.ReactiveSearchService;
+import com.string.search.service.ExampleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +11,9 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/elastic/document")
 @RequiredArgsConstructor
 @RestController
-public class DocumentController {
+public class ExampleController {
 
-    private final ReactiveSearchService reactiveSearchService;
+    private final ExampleService exampleService;
 
     /**
      * 클라이언트로부터 JSON 형태의 도큐먼트 데이터를 받아 엘라스틱서치의 지정된 인덱스에 저장합니다.
@@ -24,7 +24,7 @@ public class DocumentController {
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<Example> createDocument(@RequestBody Example document) {
-        return reactiveSearchService.saveDocument(document);
+        return exampleService.saveDocument(document);
     }
 
     /**
@@ -36,7 +36,7 @@ public class DocumentController {
      */
     @GetMapping("/search")
     public Flux<Example> searchDocuments(@RequestParam String content) {
-        return reactiveSearchService.searchDocuments(content);
+        return exampleService.searchDocuments(content);
     }
 
 }
