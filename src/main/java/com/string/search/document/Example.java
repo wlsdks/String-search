@@ -21,7 +21,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 @NoArgsConstructor
 @Getter
 @Document(indexName = "documents") // 해당 도큐먼트가 어떤 인덱스에 속할지 지정할 수 있습니다.
-public class ExampleDocument {
+public class Example {
 
     @Id
     private String id;

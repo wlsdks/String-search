@@ -1,6 +1,6 @@
 package com.string.search.controller;
 
-import com.string.search.document.ExampleDocument;
+import com.string.search.document.Example;
 import com.string.search.service.ReactiveSearchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class DocumentController {
      */
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<ExampleDocument> createDocument(@RequestBody ExampleDocument document) {
+    public Mono<Example> createDocument(@RequestBody Example document) {
         return reactiveSearchService.saveDocument(document);
     }
 
@@ -35,7 +35,7 @@ public class DocumentController {
      * @return
      */
     @GetMapping("/search")
-    public Flux<ExampleDocument> searchDocuments(@RequestParam String content) {
+    public Flux<Example> searchDocuments(@RequestParam String content) {
         return reactiveSearchService.searchDocuments(content);
     }
 

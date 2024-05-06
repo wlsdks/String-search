@@ -1,6 +1,6 @@
 package com.string.search.service;
 
-import com.string.search.document.ExampleDocument;
+import com.string.search.document.Example;
 import com.string.search.repository.ElasticsearchRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ public class ReactiveSearchService {
 
     private final ElasticsearchRepository elasticsearchRepository;
 
-    public Mono<ExampleDocument> saveDocument(ExampleDocument document) {
+    public Mono<Example> saveDocument(Example document) {
         return elasticsearchRepository.save(document)
                 .onErrorResume(e -> {
                     log.error("saveDocumentError: {}",e.getMessage());
@@ -26,7 +26,7 @@ public class ReactiveSearchService {
                 });
     }
 
-    public Flux<ExampleDocument> searchDocuments(String content) {
+    public Flux<Example> searchDocuments(String content) {
         return elasticsearchRepository.findByContentContaining(content)
                 .onErrorResume(e -> {
                     log.error("searchDocumentsError: {}", e.getMessage());
